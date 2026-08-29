@@ -1,0 +1,38 @@
+Format: 1.8
+Date: Sat, 29 Aug 2026 23:36:20 +0700
+Source: linux-upstream
+Binary: linux-headers-6.8.12-lonelynx-0.1-dirty linux-image-6.8.12-lonelynx-0.1-dirty linux-image-6.8.12-lonelynx-0.1-dirty-dbg linux-libc-dev
+Built-For-Profiles: noudeb
+Architecture: amd64
+Version: 6.8.12-3
+Distribution: lynx
+Urgency: low
+Maintainer: anomaly-arc <anomaly-arc@anomalyarc-desktop>
+Changed-By: anomaly-arc <anomaly-arc@anomalyarc-desktop>
+Description:
+ linux-headers-6.8.12-lonelynx-0.1-dirty - Linux kernel headers for 6.8.12-lonelynx-0.1-dirty on amd64
+ linux-image-6.8.12-lonelynx-0.1-dirty - Linux kernel, version 6.8.12-lonelynx-0.1-dirty
+ linux-image-6.8.12-lonelynx-0.1-dirty-dbg - Linux kernel debugging symbols for 6.8.12-lonelynx-0.1-dirty
+ linux-libc-dev - Linux support headers for userspace development
+Changes:
+ linux-upstream (6.8.12-3) lynx; urgency=low
+ .
+   * Custom built Linux kernel.
+Checksums-Sha1:
+ aee7b8dc033eed6c4e7e20ddf2153d9568e73edf 9384700 linux-headers-6.8.12-lonelynx-0.1-dirty_6.8.12-3_amd64.deb
+ 895b2fc9eba4c18d0b5471897a37e24fccdd32e2 177219518 linux-image-6.8.12-lonelynx-0.1-dirty-dbg_6.8.12-3_amd64.deb
+ 1799be0b7c3b46dd52922d9be516aa1eba5bb2a6 20117098 linux-image-6.8.12-lonelynx-0.1-dirty_6.8.12-3_amd64.deb
+ 35da763b1b731d7a63431dd54821299580a0056d 1398258 linux-libc-dev_6.8.12-3_amd64.deb
+ 0edf8b06c40e3ac47ca4f4c04df79c119025dd36 8509 linux-upstream_6.8.12-3_amd64.buildinfo
+Checksums-Sha256:
+ cd2221c1c7f6900eb9f6fd77f681d381b3e23d52e9a6eb1c51adaac0f3af51de 9384700 linux-headers-6.8.12-lonelynx-0.1-dirty_6.8.12-3_amd64.deb
+ 4b44724acc7e0b5cb626f9d8433b5a8e776b5ef1b153e4fbf1c836c8a9551800 177219518 linux-image-6.8.12-lonelynx-0.1-dirty-dbg_6.8.12-3_amd64.deb
+ 0a69938869490d55e3e75d3eeacc3aa5f6d30833ad598c7308616205fd146b98 20117098 linux-image-6.8.12-lonelynx-0.1-dirty_6.8.12-3_amd64.deb
+ e20d47e6d14335c72e782370e2f4b140d2a9086e37440c7cf932506ed3d78e40 1398258 linux-libc-dev_6.8.12-3_amd64.deb
+ 21215f8b0a648fc9b0755fef66649699bead023f1b2b3570da7a451ec90379f8 8509 linux-upstream_6.8.12-3_amd64.buildinfo
+Files:
+ 623bd98075e63da381aa9138758941a6 9384700 kernel optional linux-headers-6.8.12-lonelynx-0.1-dirty_6.8.12-3_amd64.deb
+ 3bb6bcb16a231b17d5d756e01a8748f5 177219518 debug optional linux-image-6.8.12-lonelynx-0.1-dirty-dbg_6.8.12-3_amd64.deb
+ ee83c59c30a7cd70111297112826a2ac 20117098 kernel optional linux-image-6.8.12-lonelynx-0.1-dirty_6.8.12-3_amd64.deb
+ cb213f2d992866da388444f608c51c74 1398258 devel optional linux-libc-dev_6.8.12-3_amd64.deb
+ abaf7cc619f1cac49a22a59f78ce9bda 8509 kernel optional linux-upstream_6.8.12-3_amd64.buildinfo
