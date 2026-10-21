@@ -28,6 +28,9 @@ fi
 
 echo "========== [2/5] Cleaning Canonical Keys & Module Signing =========="
 
+scripts/config --file "$OUT_DIR/.config" --disable CONFIG_DEBUG_INFO
+scripts/config --file "$OUT_DIR/.config" --disable CONFIG_DEBUG_INFO_BTF
+scripts/config --file "$OUT_DIR/.config" --disable CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
 scripts/config --file "$OUT_DIR/.config" --set-str CONFIG_SYSTEM_TRUSTED_KEYS ""
 scripts/config --file "$OUT_DIR/.config" --set-str CONFIG_SYSTEM_REVOCATION_KEYS ""
 scripts/config --file "$OUT_DIR/.config" --disable CONFIG_MODULE_SIG_FORCE
