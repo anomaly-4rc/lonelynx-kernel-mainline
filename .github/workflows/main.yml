@@ -1,13 +1,13 @@
-    - name: Build Linux Mint Kernel (BORE)
+name: Build Linux Mint Kernel (BORE)
 
-      on:
-        workflow_dispatch:
+on:
+  workflow_dispatch:
 
-        jobs:
-          build:
-          runs-on: ubuntu-latest
-          
-       steps:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Checkout Source Code
       uses: actions/checkout@v4
 
@@ -16,12 +16,11 @@
         sudo apt-get update
         sudo apt-get install -y \
           build-essential libncurses-dev bison flex libssl-dev libelf-dev \
-          dwarves zstd ccache bc kmod fakeroot debhelper cpio
-          
+          dwarves zstd ccache bc kmod fakeroot debhelper
+
     - name: Prepare Config & Optimize
       run: |
         make olddefconfig
-
         scripts/config --disable CONFIG_MODULE_SIG
         scripts/config --disable CONFIG_DEBUG_INFO
         scripts/config --disable CONFIG_DEBUG_INFO_BTF
@@ -31,11 +30,12 @@
         scripts/config --disable CONFIG_SYSTEM_REVOCATION_KEYS
         scripts/config --disable CONFIG_MODULE_SIG_FORCE
         scripts/config --disable CONFIG_EXTRA_FIRMWARE
+        scripts/config --enable CONFIG_SCHED_BORE
 
     - name: Compile Kernel (.deb Packages)
       run: |
         make -j$(nproc) bindeb-pkg LOCALVERSION=-lonelynx-1
-        
+
     - name: Move .deb packages to workspace
       run: |
         mv ../*.deb ./
@@ -45,4 +45,3 @@
       with:
         name: linux-kernel-bore-mint-deb
         path: *.deb
-          
