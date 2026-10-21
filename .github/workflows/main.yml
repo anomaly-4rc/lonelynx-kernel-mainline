@@ -1,0 +1,41 @@
+name: Build Linux Mint Kernel (BORE)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: Install Build Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential libncurses-dev bison flex libssl-dev libelf-dev \
+          dwarves zstd ccache bc kmod fakeroot debhelper cpio
+
+    - name: Prepare Config & Optimize
+      run: |
+        make olddefconfig
+
+        scripts/config --disable CONFIG_MODULE_SIG
+        scripts/config --disable CONFIG_DEBUG_INFO
+        scripts/config --disable CONFIG_DEBUG_INFO_BTF
+        scripts/config --disable CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
+        scripts/config --enable CONFIG_SCHED_BORE
+
+    - name: Compile Kernel (.deb Packages)
+      run: |
+        make -j$(nproc) deb-pkg LOCALVERSION=-lonelynx-1
+
+    - name: Upload Kernel Packages
+      uses: actions/upload-artifact@v4
+      with:
+        name: linux-kernel-bore-mint-deb
+        path: |
+          ../*.deb
+          
