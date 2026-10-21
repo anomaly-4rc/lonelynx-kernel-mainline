@@ -34,7 +34,7 @@ jobs:
 
     - name: Compile Kernel (.deb Packages)
       run: |
-        make -j$(nproc) deb-pkg LOCALVERSION=-lonelynx-1
+        make -j$(nproc) bindeb-pkg LOCALVERSION=-lonelynx-1
         
     - name: Upload Kernel Packages
       uses: actions/upload-artifact@v4
