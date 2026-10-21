@@ -1,13 +1,13 @@
-name: Build Linux Mint Kernel (BORE)
+    - name: Build Linux Mint Kernel (BORE)
 
-on:
-  workflow_dispatch:
+      on:
+        workflow_dispatch:
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
+        jobs:
+          build:
+          runs-on: ubuntu-latest
+          
+       steps:
     - name: Checkout Source Code
       uses: actions/checkout@v4
 
@@ -17,7 +17,7 @@ jobs:
         sudo apt-get install -y \
           build-essential libncurses-dev bison flex libssl-dev libelf-dev \
           dwarves zstd ccache bc kmod fakeroot debhelper cpio
-
+          
     - name: Prepare Config & Optimize
       run: |
         make olddefconfig
