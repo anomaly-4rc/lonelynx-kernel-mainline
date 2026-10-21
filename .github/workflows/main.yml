@@ -32,6 +32,10 @@ jobs:
         scripts/config --disable CONFIG_MODULE_SIG_FORCE
         scripts/config --disable CONFIG_EXTRA_FIRMWARE
 
+    - name: Compile Kernel (.deb Packages)
+      run: |
+        make -j$(nproc) deb-pkg LOCALVERSION=-lonelynx-1
+        
     - name: Upload Kernel Packages
       uses: actions/upload-artifact@v4
       with:
